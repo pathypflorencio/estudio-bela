@@ -169,6 +169,7 @@ const Login = () => {
         />
       </Box>
       <Box 
+        component="main"
         sx={{
           flex: 1,
           padding: { xs: "5% 5%", sm: "5% 10%", md: "2% 8%" },
@@ -183,7 +184,7 @@ const Login = () => {
           <Box mt={2} mb={3}>
             <img 
               src={LogoEstudioBela}
-              alt="Logo"
+              alt="Logo do Estúdio Bela"
               style={{
                 padding: "20px",
                 width: "40%",

@@ -93,6 +93,7 @@ const Register = () => {
         />
       </Box>
       <Box 
+        component="main"
         sx={{
           width: { xs: "100%", md: "50%" },
           maxWidth: "600px",
@@ -113,27 +114,29 @@ const Register = () => {
             alt="Logo contendo as palavras Estúdio de Bela." 
           />
         </Box>
-        {/* <Typography
-          variant="h1"
-          component="h1"
-          sx={{ 
-            fontSize: { xs: "1.5rem", md: "1.8rem" }, 
-            mt: 2, 
-            mb: 4,
-            fontWeight: 'bold',
-            textAlign: "center" 
-          }}
-        >
-          Faça seu cadastro
-        </Typography> */}
-        <Typography
-          component="p"
-          sx={{
-            fontSize: { xs: "0.9rem", md: "1.2rem" },
-            mt: 1,
-            mb: 2,
-            textAlign: "center"
-          }}
+        <Typography  
+          
+        variant="h1"
+        component="h1"
+        sx={{ 
+          fontSize: { xs: "1.5rem", md: "1.8rem" }, 
+          mt: 2, 
+          mb: 4,
+          fontWeight: 'bold',
+          textAlign: "center" 
+        }}
+      >
+        Faça seu cadastro
+      </Typography>
+
+      <Typography
+        component="p"
+        sx={{
+          fontSize: { xs: "0.9rem", md: "1.2rem" },
+          mt: 1,
+          mb: 2,
+          textAlign: "center"
+              }}
         >
           Preencha as informações abaixo para criar sua conta:
         </Typography>
