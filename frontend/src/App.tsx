@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import Home from './pages/Home';
@@ -16,13 +16,17 @@ import RegisterProfessional from './pages/RegisterProfessional';
 import StockControl from './pages/StockControl';
 import React from 'react';
 import AccessibilityMenu from './components/AccessibilityMenu'; 
+
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
         <BrowserRouter>
-        <AccessibilityMenu />
+          <AccessibilityMenu />
           <Routes>
+            {/* Redireciona a rota raiz para /inicio */}
+            <Route path="/" element={<Navigate to="/inicio" replace />} />
+            
             <Route path="/inicio" element={<Home />} />
             <Route path="/inicio/login" element={<Login />} />
             <Route path="/inicio/cadastro" element={<Register />} />

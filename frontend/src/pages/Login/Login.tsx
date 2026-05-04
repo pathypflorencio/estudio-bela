@@ -14,7 +14,6 @@ import { Box } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
 import "../../css/pages/Login.css";
 
-
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref,
@@ -59,7 +58,6 @@ const Login = () => {
         }),
       });
 
-
       console.log(response);
 
       if (!response.ok) {
@@ -102,7 +100,6 @@ const Login = () => {
     }
   };
 
-
   const email = useWatch({
     control,
     name: "email",
@@ -116,13 +113,13 @@ const Login = () => {
   const isDisabled = () => {
     if (
       email &&
-      (password.length >= 6)
+      (password && password.length >= 6)
     ) {
       return false;
     } else {
       return true;
     }
-  }  
+  };
 
   const ButtonLogin = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blue[500]),
@@ -137,6 +134,7 @@ const Login = () => {
   }));
 
   return (
+    // Tag semântica principal da página
     <Box
       component="section"
       aria-labelledby="form-container-login"
@@ -161,24 +159,24 @@ const Login = () => {
       >
         <img 
           src={Ilustration} 
-          alt="Ilustração de uma mulher preenchendo a tela com os dados de usuario e senha para logar" 
+          alt="Ilustração de uma mulher preenchendo a tela com os dados de usuário e senha para logar" 
           style={{
             maxWidth: "100%",
             height: "auto"
           }}
         />
       </Box>
+
       <Box 
         component="main"
+        role="main"
+        aria-label="Área de autenticação e login"
         sx={{
           flex: 1,
           padding: { xs: "5% 5%", sm: "5% 10%", md: "2% 8%" },
           overflow: "auto"
         }}
       >
-        {/* {isNavigate && (
-          <Navigate to="dashboard" replace={true} />
-        )} */}
         <Box>
           <DynamicBreadcrumbs />
           <Box mt={2} mb={3}>
@@ -188,16 +186,17 @@ const Login = () => {
               style={{
                 padding: "20px",
                 width: "40%",
-                // maxWidth: "300px",
                 margin: "0px auto",
                 display: "flex",
                 justifyContent: "center"
               }} 
             />
           </Box>
+
           <form
             onSubmit={handleSubmit(onSubmit)} 
             autoComplete="off"
+            aria-label="Formulário de Login"
           >
             <Controller
               name='email'
@@ -241,13 +240,14 @@ const Login = () => {
                     ariaLabel={"Senha"}
                     value={value}
                     error={false}
-                    errorMsg={"Senha incorreta ou numero de caracters invalido"}
+                    errorMsg={"Senha incorreta ou número de caracteres inválido"}
                     onChange={onChange}
                     onBlur={onBlur}
                   />
                 );
               }}
             />
+
             <ButtonLogin
               fullWidth
               variant="contained" 
@@ -255,6 +255,7 @@ const Login = () => {
               style={{ fontSize: "1.3rem" }}
               disabled={isDisabled()}
               className={!isDisabled() ? "btn-container" : "btn-disable"}
+              aria-label="Acessar sua conta no sistema"
               sx={{
                 mt: 2,
                 borderRadius: 0,
@@ -272,7 +273,8 @@ const Login = () => {
             <Link 
               className="custom-link"
               to="/inicio/login/cadastro"
-              style={{fontSize: "1.2rem", color: 'white' }}
+              style={{fontSize: "1.2rem", color: 'white', display: 'block', marginTop: '10px' }}
+              aria-label="Ir para a página de cadastro de uma nova conta"
             >
               Não tem conta? <b>Cadastre-se</b>
             </Link>
@@ -280,18 +282,19 @@ const Login = () => {
             <Link
               className="custom-link"
               to="/inicio/login/resetar-senha"
-              style={{fontSize: "1.2rem", color: 'white'}}
+              style={{fontSize: "1.2rem", color: 'white', display: 'block', marginTop: '10px'}}
+              aria-label="Recuperar sua senha de acesso"
             >
               Perdeu a Senha?
             </Link>
           </form>
+
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
               E-mail ou senha incorreto!
             </Alert>
           </Snackbar>
         </Box>
-
       </Box>
     </Box>
   );

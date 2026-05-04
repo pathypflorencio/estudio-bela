@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Divider } from "@mui/material";
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
@@ -9,24 +10,53 @@ import FooterSection from "../components/FooterSection/FooterSection";
 import "../css/pages/Home.css";
 
 const Home: React.FC = () => {
-
   return (
     <Container 
       component="main" 
       className="home-page" 
       maxWidth="xl" 
-      sx={{background: 'linear-gradient(140deg, #D7C4A1 2%, #864A4A 83%)',}}
+      // Adicionamos os atributos de acessibilidade para leitores de tela
+      role="main"
+      aria-label="Conteúdo principal da página inicial"
+      sx={{ background: 'linear-gradient(140deg, #D7C4A1 2%, #864A4A 83%)' }}
     >
+      {/* Menu de navegação superior */}
       <NavBar />
-      <StartSection />
+
+      {/* Seção de introdução */}
+      <section aria-label="Apresentação inicial do Estúdio">
+        <StartSection />
+      </section>
+
       <Divider />
-      <Services />
+
+      {/* Seção de serviços */}
+      <section aria-label="Nossos serviços">
+        <Services />
+      </section>
+
       <Divider />
-      <Team />
+
+      {/* Seção da equipe */}
+      <section aria-label="Nossa equipe">
+        <Team />
+      </section>
+
       <Divider />
-      <Enterprise />
+
+      {/* Seção sobre a empresa */}
+      <section aria-label="Sobre a nossa empresa">
+        <Enterprise />
+      </section>
+
       <Divider />
-      <FooterSection />
+
+      {/* Seção de contato ou rodapé expandido */}
+      <section aria-label="Informações de contato e rodapé">
+        <FooterSection />
+      </section>
+
+      {/* Rodapé geral */}
       <Footer />
     </Container>
   );

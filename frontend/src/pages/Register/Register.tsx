@@ -46,7 +46,6 @@ const Register = () => {
     }
   };
 
-
   const ButtonRegister = styled(Button)<ButtonProps>(() => ({
     color: "#B76E79",
     border: "1px solid #B76E79",
@@ -85,15 +84,18 @@ const Register = () => {
       >        
         <img 
           src={Ilustration} 
-          alt="Ilustração de uma mulher preenchendo formulario de cadastro" 
+          alt="Ilustração de uma mulher preenchendo formulário de cadastro" 
           style={{
             maxWidth: "100%",
             height: "auto",
           }}
         />
       </Box>
+
       <Box 
         component="main"
+        role="main"
+        aria-label="Área de registro de usuário"
         sx={{
           width: { xs: "100%", md: "50%" },
           maxWidth: "600px",
@@ -114,29 +116,29 @@ const Register = () => {
             alt="Logo contendo as palavras Estúdio de Bela." 
           />
         </Box>
+        
         <Typography  
-          
-        variant="h1"
-        component="h1"
-        sx={{ 
-          fontSize: { xs: "1.5rem", md: "1.8rem" }, 
-          mt: 2, 
-          mb: 4,
-          fontWeight: 'bold',
-          textAlign: "center" 
-        }}
-      >
-        Faça seu cadastro
-      </Typography>
+          variant="h1"
+          component="h1"
+          sx={{ 
+            fontSize: { xs: "1.5rem", md: "1.8rem" }, 
+            mt: 2, 
+            mb: 4,
+            fontWeight: 'bold',
+            textAlign: "center" 
+          }}
+        >
+          Faça seu cadastro
+        </Typography>
 
-      <Typography
-        component="p"
-        sx={{
-          fontSize: { xs: "0.9rem", md: "1.2rem" },
-          mt: 1,
-          mb: 2,
-          textAlign: "center"
-              }}
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: "0.9rem", md: "1.2rem" },
+            mt: 1,
+            mb: 2,
+            textAlign: "center"
+          }}
         >
           Preencha as informações abaixo para criar sua conta:
         </Typography>
@@ -144,6 +146,7 @@ const Register = () => {
         <form
           onSubmit={handleSubmit(onSubmit)} 
           autoComplete="off"
+          aria-label="Formulário de Cadastro"
         >
           <Controller 
             name='name'
@@ -161,11 +164,11 @@ const Register = () => {
                   stylesInput={"input-register"} 
                   stylesError={undefined} 
                   isPassword={false} 
-                  ariaLabel={"Nome"} 
+                  ariaLabel={"Nome completo"} 
                   error={false} 
                   errorMsg={""}
                   onChange={onChange}
-                  onBlur={onBlur}                 
+                  onBlur={onBlur}                
                 />
               )
             }}
@@ -187,15 +190,15 @@ const Register = () => {
                   stylesInput={"input-register"} 
                   stylesError={undefined} 
                   isPassword={false} 
-                  ariaLabel={"cpf"} 
+                  ariaLabel={"Número do CPF"} 
                   error={false} 
                   errorMsg={""}
                   onChange={onChange}
-                  onBlur={onBlur}             
+                  onBlur={onBlur}            
                 />
               )
             }}
-          />    
+          />   
 
           <Controller 
             name='dateOfBirth'
@@ -213,11 +216,11 @@ const Register = () => {
                   stylesInput={"input-register"} 
                   stylesError={undefined} 
                   isPassword={false} 
-                  ariaLabel={"data De Nascimento"} 
+                  ariaLabel={"Data de Nascimento"} 
                   error={false} 
                   errorMsg={""}
                   onChange={onChange}
-                  onBlur={onBlur}                 
+                  onBlur={onBlur}                
                 />
               )
             }}
@@ -235,6 +238,7 @@ const Register = () => {
           >
             Qual é o número do seu celular?
           </Typography>
+          
           <Typography
             component="p"
             sx={{
@@ -261,11 +265,11 @@ const Register = () => {
                   stylesInput={"input-register"} 
                   stylesError={undefined} 
                   isPassword={false} 
-                  ariaLabel={"Celular"} 
+                  ariaLabel={"Número do Celular com DDD"} 
                   error={false} 
                   errorMsg={""}
                   onChange={onChange}
-                  onBlur={onBlur}                 
+                  onBlur={onBlur}                
                 />
               )
             }}
@@ -293,6 +297,7 @@ const Register = () => {
               variant="contained" 
               disabled={!isValid}
               onClick={() => {}}
+              aria-label="Confirmar e enviar o formulário de cadastro"
               sx={{
                 mt: 2,
                 borderRadius: 0,
